@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2563eb" />
+  <title>DompetSiswa — Kelola Budget & Keuangan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header & Kartu Sisa Budget -->
+    <header class="app-header">
+      <div class="brand">
+        <h1>DompetSiswa</h1>
+        <span class="badge-offline">Offline Ready</span>
+      </div>
+      <div class="budget-card">
+        <p class="budget-label">Sisa Budget Tersedia</p>
+        <h2 id="saldo-tersedia" class="budget-amount">Rp 0</h2>
+        <div class="budget-info">
+          <span>Target Budget: <strong id="target-budget-tampil">Rp 0</strong></span>
+          <button type="button" id="btn-atur-budget" class="btn-link">Atur Budget</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Ringkasan Pemasukan & Pengeluaran -->
+    <section class="summary-grid" aria-label="Ringkasan Keuangan">
+      <div class="summary-card income">
+        <span class="summary-title">Total Pemasukan</span>
+        <strong id="total-pemasukan" class="summary-value">Rp 0</strong>
+      </div>
+      <div class="summary-card expense">
+        <span class="summary-title">Total Pengeluaran</span>
+        <strong id="total-pengeluaran" class="summary-value">Rp 0</strong>
+      </div>
+    </section>
+
+    <!-- Form Tambah Transaksi -->
+    <section class="card form-section">
+      <h2>Catat Transaksi Baru</h2>
+      <form id="form-transaksi">
+        <div class="form-group">
+          <label for="jenis">Jenis Transaksi</label>
+          <select id="jenis" required>
+            <option value="pengeluaran">Pengeluaran (-)</option>
+            <option value="pemasukan">Pemasukan (+)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="nominal">Nominal (Rp)</label>
+          <input type="number" id="nominal" placeholder="Contoh: 15000" min="1" required />
+        </div>
+
+        <div class="form-group">
+          <label for="kategori">Kategori</label>
+          <select id="kategori" required>
+            <option value="Jajan & Makan">Jajan & Makan</option>
+            <option value="Transportasi">Transportasi</option>
+            <option value="Alat Tulis & Tugas">Alat Tulis & Tugas</option>
+            <option value="Uang Saku / Bonus">Uang Saku / Bonus</option>
+            <option value="Tabungan">Tabungan</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="keterangan">Keterangan Singkat</label>
+          <input type="text" id="keterangan" placeholder="Contoh: Bakso kantin atau ongkos angkot" required />
+        </div>
+
+        <button type="submit" class="btn-primary">Simpan Transaksi</button>
+      </form>
+    </section>
+
+    <!-- Riwayat Transaksi -->
+    <section class="card history-section">
+      <div class="history-header">
+        <h2>Riwayat Transaksi</h2>
+        <button type="button" id="btn-reset-semua" class="btn-danger-outline">Hapus Semua</button>
+      </div>
+      <ul id="daftar-transaksi" class="transaction-list">
+        <li class="empty-state">Belum ada transaksi tercatat. Yuk mulai catat!</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+            </html>
